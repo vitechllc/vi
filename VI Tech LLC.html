@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VI Tech LLC | Software, AI &amp; Digital Engineering from Baku</title>
+<meta name="description" content="VI Tech LLC is a full-stack software team in Baku, Azerbaijan: web, mobile, AI, CRM, APIs, cloud and security.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--c:#4fd6db;--c2:#17c3b2;--cd:#0b8f84;--ink:#0b2a30;--bg:#f3fbfb;--card:#fff;--mut:#4b6468;--line:#cfe6e7;--dk:#062329;--dk2:#0a3640;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#071b20;--card:#0c2a31;--ink:#e6f7f8;--mut:#9fc0c4;--line:#17414a;--dk:#041418;--cd:#4fd6db}}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:'Instrument Sans',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,.sora{font-family:Sora,sans-serif;line-height:1.15;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}:focus-visible{outline:3px solid var(--c2);outline-offset:3px}
+.w{max-width:1180px;margin:auto;padding:0 24px}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--c),var(--c2));z-index:99}
+header{position:fixed;inset:0 0 auto;z-index:50;padding-top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;font:800 20px Sora}.brand svg{width:44px;height:44px;transition:transform .8s}.brand:hover svg{transform:rotate(360deg)}
+nav ul{display:flex;gap:26px;list-style:none;font-weight:500;font-size:15px}nav a:hover{color:var(--cd)}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:12px 26px;border-radius:99px;font:600 15px 'Instrument Sans';border:0;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px color-mix(in srgb,var(--c) 55%,transparent)}
+.btn.alt{background:linear-gradient(135deg,var(--c),var(--c2));color:#05302f}
+.hero{min-height:100svh;padding:110px 0 50px;display:flex;align-items:center;position:relative;overflow:hidden}
+.glow{position:absolute;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--c) 38%,transparent),transparent 65%);left:var(--x,70%);top:var(--y,40%);translate:-50% -50%;pointer-events:none;transition:left .6s ease-out,top .6s ease-out}
+.hero .w{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center;position:relative}
+.hero h1{font-size:clamp(38px,5.6vw,68px);font-weight:800}
+.hero h1 span{display:block;overflow:hidden}.hero h1 span b{display:block;animation:up 1s calc(var(--d)*.18s) both cubic-bezier(.2,.8,.2,1)}
+.hero h1 .g{background:linear-gradient(100deg,var(--cd),var(--c),var(--cd));background-size:200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:up 1s .36s both,sh 5s linear infinite}
+@keyframes up{from{transform:translateY(110%)}}@keyframes sh{to{background-position:200%}}
+.hero p.l{font-size:19px;color:var(--mut);max-width:530px;margin:22px 0 30px;animation:in 1s .7s both}
+.cta{display:flex;gap:14px;flex-wrap:wrap;animation:in 1s .9s both}@keyframes in{from{opacity:0;transform:translateY(24px)}}
+.iso{perspective:1300px;height:480px;position:relative}
+.stack{position:absolute;left:50%;top:50%;width:240px;height:240px;margin:-120px 0 0 -120px;transform-style:preserve-3d;transform:rotateX(58deg) rotateZ(-32deg)}
+.layer{position:absolute;inset:0;border-radius:26px;border:1.5px solid var(--c);background:color-mix(in srgb,var(--c) 16%,transparent);transform:translateZ(calc(var(--i)*42px));transition:transform .5s cubic-bezier(.3,1.4,.5,1),background .4s,box-shadow .4s;animation:spread 1.4s calc(var(--i)*.14s) backwards cubic-bezier(.2,.8,.2,1);display:flex;align-items:flex-end;padding:12px 16px;font:700 14px Sora;color:var(--cd)}
+.layer.on{background:linear-gradient(135deg,var(--c),var(--c2));color:#05302f;transform:translateZ(calc(var(--i)*42px + 26px));box-shadow:0 0 60px color-mix(in srgb,var(--c) 70%,transparent)}
+@keyframes spread{from{transform:translateZ(0);opacity:0}}
+.pick{position:absolute;left:0;bottom:0;display:flex;flex-wrap:wrap;gap:8px}
+.pick button,.chips button{font:500 14px 'Instrument Sans';padding:6px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;transition:.25s}
+.pick button.on,.pick button:hover{background:var(--c);border-color:var(--c);color:#05302f}
+.fl{position:absolute;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:13px;box-shadow:0 14px 40px rgba(6,35,41,.14);animation:fl 5s ease-in-out infinite alternate}
+@keyframes fl{to{transform:translateY(-14px)}}
+.fl.t{top:6px;right:0;width:250px;font:12px/1.6 ui-monospace,Menlo,monospace;color:var(--mut);height:96px}.fl.t i{color:var(--cd);font-style:normal}
+.fl.m{top:200px;left:-10px;animation-delay:-2s}.fl.m b{display:block;font:800 24px Sora;color:var(--cd)}
+.mq{border-block:1px solid var(--line);overflow:hidden;background:var(--card)}
+.mq div{display:flex;gap:56px;width:max-content;padding:18px 0;animation:mq 36s linear infinite;font:600 17px Sora;color:var(--mut)}.mq:hover div{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+section{padding:100px 0}
+.h{max-width:660px;margin-bottom:48px}.h h2{font-size:clamp(30px,4vw,46px);font-weight:700}.h p{color:var(--mut);margin-top:14px;font-size:17px}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+.stat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:-1px;padding:40px 0}
+.stat div{border-inline-start:3px solid var(--c);padding-inline-start:18px;color:var(--mut);font-size:14px}.stat b{display:block;font:800 40px Sora;color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:22px;overflow:hidden;background:var(--card)}
+.sv{padding:30px 24px;border:1px solid var(--line);margin:-.5px;position:relative;transition:background .3s,transform .3s;overflow:hidden}
+.sv:before{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--c);transition:width .5s}.sv:hover:before{width:100%}.sv:hover{background:color-mix(in srgb,var(--c) 12%,var(--card))}
+.sv i{font:800 26px Sora;color:var(--c2);display:block;margin-bottom:14px;font-style:normal}.sv h3{font-size:18px;margin-bottom:8px}.sv p{color:var(--mut);font-size:14.5px}
+.dk{background:var(--dk);color:#e6f7f8}.dk .h p{color:#9fc0c4}
+.show{display:grid;grid-template-columns:1.4fr .7fr 1fr;gap:24px;align-items:stretch}
+.mock{background:var(--dk2);border:1px solid #1f5560;border-radius:20px;padding:16px;position:relative;overflow:hidden}
+.mock>small{display:block;color:#9fc0c4;margin-top:12px;font-size:13px}
+.dots{display:flex;gap:6px;margin-bottom:12px}.dots s{width:9px;height:9px;border-radius:50%;background:#1f5560}
+.kpi{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}.kpi div{background:#0d414c;border-radius:10px;padding:8px 10px;font-size:11px;color:#9fc0c4}.kpi b{display:block;font:700 18px Sora;color:var(--c)}
+.bars{display:flex;align-items:flex-end;gap:7px;height:110px}.bars u{flex:1;background:linear-gradient(var(--c),var(--c2));border-radius:5px 5px 0 0;animation:bar 2.4s var(--d) ease-in-out infinite alternate}
+@keyframes bar{from{height:20%}to{height:var(--h)}}
+.line{width:100%;height:60px;margin-top:10px}.line path{fill:none;stroke:var(--c);stroke-width:2.5;stroke-dasharray:420;animation:dr 4s ease-in-out infinite}@keyframes dr{0%{stroke-dashoffset:420}60%,100%{stroke-dashoffset:0}}
+.ph{max-width:210px;margin:auto;background:#0d414c;border:3px solid #2a6a76;border-radius:30px;padding:14px 12px;height:100%}
+.ph .ring{width:96px;height:96px;margin:6px auto;display:block}.ring circle{fill:none;stroke-width:9;stroke-linecap:round}.ring .r2{stroke:var(--c);stroke-dasharray:251;animation:rg 3.5s ease-in-out infinite alternate}@keyframes rg{from{stroke-dashoffset:200}to{stroke-dashoffset:40}}
+.row{height:30px;border-radius:9px;background:#0a3640;margin-top:8px;display:flex;align-items:center;gap:8px;padding:0 8px;font-size:11px;color:#9fc0c4;animation:sl 4s var(--d) infinite}.row:before{content:"";width:16px;height:16px;border-radius:50%;background:var(--c2)}@keyframes sl{0%,10%{opacity:0;transform:translateX(24px)}25%,90%{opacity:1;transform:none}100%{opacity:0}}
+.chat{display:flex;flex-direction:column;gap:8px;min-height:190px;font-size:13px}.chat p{max-width:85%;padding:8px 12px;border-radius:14px;animation:in .5s both}.chat .u{background:#0d414c;align-self:flex-end}.chat .a{background:var(--c);color:#04282b;align-self:flex-start}
+.nn{width:100%;height:80px;margin-top:8px}.nn circle{fill:var(--c);animation:pu 2s var(--d) infinite}@keyframes pu{50%{opacity:.2}}.nn line{stroke:#2a6a76}
+.ex{display:grid;gap:0;border-top:1px solid var(--line)}.ex div{display:grid;grid-template-columns:200px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center}.ex h3{font-size:18px}.ex p{display:flex;flex-wrap:wrap;gap:8px}
+.ex span{font-size:14px;padding:4px 14px;border-radius:99px;background:var(--card);border:1px solid var(--line);opacity:0;transform:scale(.8);transition:.4s calc(var(--k)*.05s),background .2s}.ex .in span{opacity:1;transform:none}.ex span:hover{background:var(--c);color:#05302f}
+.arch{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}.chips button{padding:10px 20px;font-size:15px;background:transparent;border-color:#1f5560;color:#e6f7f8}.chips button[aria-pressed=true]{background:var(--c);border-color:var(--c);color:#05302f}
+#out{color:#9fc0c4;min-height:96px}#out b{color:var(--c)}
+svg.map{width:100%;height:auto;background:var(--dk2);border-radius:24px}
+.nd rect{fill:#0d414c;stroke:#1f5560;transition:.5s}.nd text{fill:#6f9aa0;font:500 14px 'Instrument Sans';transition:.5s}.nd.on rect{fill:var(--c);stroke:var(--c)}.nd.on text{fill:#04282b;font-weight:700}
+.ln{stroke:#1f5560;stroke-width:1.5;fill:none;stroke-dasharray:6 6}.ln.on{stroke:var(--c);animation:flow 1s linear infinite}@keyframes flow{to{stroke-dashoffset:-12}}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;position:relative}
+.steps:before,.steps:after{content:"";position:absolute;top:15px;left:0;height:2px;right:0;background:var(--line)}.steps:after{right:auto;width:0;background:var(--c2);transition:width 2.4s ease}.steps.go:after{width:100%}
+.st{position:relative;padding-top:50px}.st:before{content:attr(data-n);position:absolute;top:0;left:0;width:32px;height:32px;border-radius:50%;background:var(--c2);color:#05302f;font:700 15px Sora;display:grid;place-items:center;z-index:1}
+.st h3{font-size:18px}.st p{color:var(--mut);font-size:14.5px;margin-top:6px}
+.vals{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.vals div{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;transition:transform .3s,border-color .3s}.vals div:hover{transform:translateY(-8px);border-color:var(--c)}.vals h3{font-size:17px;margin-bottom:6px}.vals p{font-size:14px;color:var(--mut)}
+.team .w{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.cities circle.p{fill:var(--c2);animation:pl 2s infinite}@keyframes pl{50%{opacity:.25}}
+.ct{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px}
+.info a,.info p{display:flex;gap:14px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);font-size:17px}.info a:hover{color:var(--cd)}.info small{display:block;color:var(--mut);font-size:13px}.info em{font:800 14px Sora;color:#05302f;background:var(--c);width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-style:normal;flex:none}
+form{display:grid;gap:14px}input,textarea,select{font:inherit;padding:14px 18px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--mut);font-size:14px}footer .w{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:960px){nav ul{display:none}.hero .w,.arch,.team .w,.ct,.show{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.steps,.vals{grid-template-columns:1fr 1fr}.steps:before,.steps:after{display:none}.stat{grid-template-columns:1fr 1fr}.ex div{grid-template-columns:1fr}.iso{height:420px}.fl.m{display:none}section{padding:64px 0}}
+@media(max-width:560px){.grid,.steps,.vals{grid-template-columns:1fr}.fl.t{width:200px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.ex span{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<svg width="0" height="0" style="position:absolute"><symbol id="lg" viewBox="175 175 1220 1220"><circle cx="785" cy="785" r="610" fill="#4fd6db"/><g fill="#fff"><path d="M397 457H733V476H660L800 895 677 1103 445 476H397Z"/><path d="M793 626H1125L790 1195 611 1245 882 785Z"/><path d="M1085 443H1232L1175 542H1028Z"/></g></symbol></svg>
+<header><div class="w nav">
+<a class="brand" href="#top" aria-label="VI Tech home"><svg><use href="#lg"/></svg>VI Tech</a>
+<nav><ul><li><a href="#services">Services</a></li><li><a href="#showcase">Showcase</a></li><li><a href="#stack">Technology</a></li><li><a href="#process">Process</a></li><li><a href="#about">About</a></li></ul></nav>
+<a class="btn alt" href="#contact">Start a project</a></div></header>
+
+<main id="top">
+<section class="hero" id="hero"><div class="glow" id="glow"></div><div class="w">
+<div><h1><span><b>Every layer</b></span><span><b class="g">of software,</b></span><span><b>one team.</b></span></h1>
+<p class="l">VI Tech is an Arabic-led engineering team in Baku, Azerbaijan. We design, build and run websites, mobile apps, AI systems, CRMs, APIs, cloud platforms and the security around them.</p>
+<div class="cta"><a class="btn alt" href="#architect">Design your system</a><a class="btn" href="#contact">Talk to us</a></div></div>
+<div class="iso" aria-label="Layers of a software system">
+<div class="fl t" id="term"></div><div class="fl m"><b id="cap">Web</b><span id="capt">Fast, responsive interfaces</span></div>
+<div class="stack" id="st"></div><div class="pick" id="pick"></div></div>
+</div></section>
+
+<div class="mq" aria-hidden="true"><div id="mq"></div></div>
+<div class="w stat rv" id="stats"><div><b data-n="8">0</b>core service lines</div><div><b data-n="60" data-s="+">0</b>technologies in our toolbox</div><div><b data-n="24" data-s="/7">0</b>support after launch</div><div><b data-n="1" data-s=" team">0</b>from idea to production</div></div>
+
+<section id="services"><div class="w">
+<div class="h rv"><h2>Everything you need to ship software, under one roof.</h2><p>Strategy, design, engineering, security and support, handled by the same people who understand your goals from day one.</p></div>
+<div class="grid rv">
+<div class="sv"><i>&lt;/&gt;</i><h3>Websites &amp; Portals</h3><p>Corporate sites, e-commerce stores and service portals. Clear, fast, responsive, with full Arabic and RTL support.</p></div>
+<div class="sv"><i>Full</i><h3>Full-Stack Development</h3><p>Front end, back end and databases built as one coherent system with a scalable, maintainable architecture.</p></div>
+<div class="sv"><i>App</i><h3>Mobile Applications</h3><p>Android and iOS apps with user management, push notifications, in-app payments and integrations.</p></div>
+<div class="sv"><i>CRM</i><h3>CRM &amp; Business Systems</h3><p>Track orders, customers and transactions with dashboards, reports and role-based permissions.</p></div>
+<div class="sv"><i>AI</i><h3>AI Solutions</h3><p>Smart assistants, natural language processing, document reading, task automation and data analysis, with Arabic and its dialects in mind.</p></div>
+<div class="sv"><i>ML</i><h3>Model Training &amp; Tuning</h3><p>Data preparation and cleaning, then training or fine-tuning, evaluation and deployment into live systems.</p></div>
+<div class="sv"><i>API</i><h3>Integration &amp; APIs</h3><p>Connect systems to each other, to payment providers and to third parties through documented, secure APIs.</p></div>
+<div class="sv"><i>Sec</i><h3>Security, Hosting &amp; Support</h3><p>Security, data protection and auditing designed in from the start, plus hosting, maintenance and technical support after launch.</p></div>
+</div></div></section>
+
+<section id="showcase" class="dk"><div class="w">
+<div class="h rv"><h2>What we build, in motion.</h2><p>Illustrative previews of the kinds of products our team delivers: analytics dashboards, mobile apps and AI assistants.</p></div>
+<div class="show rv">
+<div class="mock"><div class="dots"><s></s><s></s><s></s></div><div class="kpi"><div>Revenue<b data-live="124">0</b></div><div>Orders<b data-live="3480">0</b></div><div>Uptime<b>99.9%</b></div></div><div class="bars" id="bars"></div>
+<svg class="line" viewBox="0 0 300 60" preserveAspectRatio="none"><path d="M0 50C40 45 50 20 90 28S140 55 180 30 250 5 300 12"/></svg><small>Web dashboard: real-time analytics and reporting</small></div>
+<div class="mock"><div class="ph"><svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" stroke="#1f5560"/><circle class="r2" cx="50" cy="50" r="40" transform="rotate(-90 50 50)"/></svg><div class="row" style="--d:0s">Payment received</div><div class="row" style="--d:.8s">New order #2041</div><div class="row" style="--d:1.6s">Delivery confirmed</div><div class="row" style="--d:2.4s">Push sent</div></div><small>Mobile app: Android and iOS</small></div>
+<div class="mock"><div class="dots"><s></s><s></s><s></s></div><div class="chat" id="chat"></div>
+<svg class="nn" viewBox="0 0 300 80" id="nn"></svg><small>AI assistant: Arabic and English understanding</small></div>
+</div></div></section>
+
+<section id="stack"><div class="w">
+<div class="h rv"><h2>A toolbox as wide as the problem.</h2><p>We choose the right tool for your goal, not the one we happen to know. Here is what our engineers work with every day.</p></div>
+<div class="ex" id="ex"></div></div></section>
+
+<section id="architect" class="dk"><div class="w">
+<div class="h rv"><h2>Design your system, live.</h2><p>Pick what you want to build and watch the components we would deliver light up and connect.</p></div>
+<div class="arch"><div><div class="chips" id="chips"></div><div id="out"></div></div>
+<svg class="map" id="map" viewBox="0 0 600 400" role="img" aria-label="System diagram"></svg></div></div></section>
+
+<section id="process"><div class="w">
+<div class="h rv"><h2>How we work.</h2><p>Clear stages, regular reviews, and no surprises at launch.</p></div>
+<div class="steps" id="steps">
+<div class="st" data-n="1"><h3>Understand</h3><p>We learn your goal before choosing tools, then plan in clear phases.</p></div>
+<div class="st" data-n="2"><h3>Design</h3><p>Architecture, data model and interface design agreed with you up front.</p></div>
+<div class="st" data-n="3"><h3>Build in short cycles</h3><p>You review progress and give feedback during development, not after.</p></div>
+<div class="st" data-n="4"><h3>Test &amp; secure</h3><p>Every product is tested before delivery. Security and data privacy are part of every project.</p></div>
+<div class="st" data-n="5"><h3>Launch &amp; support</h3><p>Deployment, hosting, maintenance and ongoing support as your needs grow.</p></div>
+</div></div></section>
+
+<section id="about" class="team" style="background:var(--card)"><div class="w">
+<div class="rv"><div class="h" style="margin:0 0 24px"><h2>An Arabic-led team in the heart of Azerbaijan.</h2></div>
+<p style="color:var(--mut);font-size:17px;margin-bottom:14px">VI Tech is a technology company headquartered in Baku. Our team combines Arab and international talent: engineers, designers and data specialists from different backgrounds who understand the Arab user and the regional market.</p>
+<p style="color:var(--mut);font-size:17px">Our mission is simple: turn ideas into reliable, easy-to-use digital products that serve people with clarity and simplicity, and keep growing as your business does.</p></div>
+<div class="rv"><svg class="cities" viewBox="0 0 400 150" style="width:100%" aria-hidden="true"><path d="M60 105Q190 -25 330 62" fill="none" stroke="var(--c2)" stroke-dasharray="5 6"/><circle cx="60" cy="105" r="6" fill="var(--c)"/><circle class="p" cx="330" cy="62" r="10"/><text x="330" y="94" text-anchor="middle" fill="var(--ink)" font-size="14" font-family="Sora">Baku</text><text x="60" y="130" text-anchor="middle" fill="var(--ink)" font-size="14" font-family="Sora">Arab world</text></svg></div>
+</div>
+<div class="w" style="margin-top:56px"><div class="vals rv">
+<div><h3>Quality in the details</h3><p>We sweat the small things that make software feel reliable.</p></div>
+<div><h3>Integrity</h3><p>Honest advice and honest estimates, even when it is not what you hoped to hear.</p></div>
+<div><h3>Accountability</h3><p>We own the results, not only the tasks.</p></div>
+<div><h3>Transparency</h3><p>Open communication, visible progress, no hidden surprises.</p></div>
+<div><h3>Long-term trust</h3><p>We build relationships that last well beyond a single launch.</p></div>
+</div></div></section>
+
+<section id="contact"><div class="w ct">
+<div class="rv"><div class="h" style="margin-bottom:24px"><h2>Let's build it.</h2><p>Tell us about your idea. We reply with a clear plan.</p></div>
+<div class="info"><a href="tel:+994502104341"><em>Tel</em><span><small>Phone</small>+994 50 210 4341</span></a><a href="mailto:info@vitech.com"><em>@</em><span><small>Email</small>info@vitech.com</span></a><a href="https://www.vitech.website" target="_blank" rel="noopener"><em>www</em><span><small>Website</small>www.vitech.website</span></a><p><em>Loc</em><span><small>Headquarters</small>Baku, Azerbaijan</span></p></div></div>
+<form id="f" class="rv"><input id="nm" required placeholder="Your name" aria-label="Name"><input id="em" type="email" required placeholder="Your email" aria-label="Email"><select id="tp" aria-label="Project type"><option>Website or portal</option><option>Mobile app</option><option>AI solution</option><option>CRM / business system</option><option>API integration</option><option>Something else</option></select><textarea id="ms" rows="5" placeholder="Tell us about your project" aria-label="Message"></textarea><button class="btn alt" type="submit">Send message</button></form>
+</div></section>
+</main>
+<footer><div class="w"><span>© 2026 VI Tech LLC · Baku, Azerbaijan</span><span>info@vitech.com · +994 50 210 4341</span></div></footer>
+
+<script>
+const $=id=>document.getElementById(id),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+addEventListener('scroll',()=>{$('bar').style.width=scrollY/(document.body.scrollHeight-innerHeight)*100+'%'},{passive:true});
+$('hero').onmousemove=e=>{$('glow').style.setProperty('--x',e.clientX+'px');$('glow').style.setProperty('--y',e.clientY+'px')};
+/* iso stack */
+const L=[["Security","Encryption, auditing, data protection"],["Cloud","AWS, Google Cloud, Azure, Docker"],["Data & API","Databases and secure integrations"],["AI","Models, assistants, Arabic NLP"],["Mobile","Android and iOS apps"],["Web","Fast, responsive interfaces"]];
+let cur=5,hold=0;
+L.forEach((l,i)=>{const d=document.createElement('div');d.className='layer';d.style.setProperty('--i',i);d.textContent=l[0];$('st').appendChild(d);const b=document.createElement('button');b.textContent=l[0];b.onmouseenter=b.onclick=()=>{hold=Date.now();sel(i)};$('pick').prepend(b)});
+function sel(i){cur=i;[...$('st').children].forEach((e,k)=>e.classList.toggle('on',k==i));[...$('pick').children].forEach((e,k)=>e.classList.toggle('on',k==5-i));$('cap').textContent=L[i][0];$('capt').textContent=L[i][1]}
+sel(5);if(!rm)setInterval(()=>{if(Date.now()-hold>5000)sel((cur+5)%6)},2600);
+/* terminal */
+const T=['<i>$</i> git push origin main','<i>✓</i> tests passed (248)','<i>✓</i> security scan clean','<i>↑</i> deployed to production'];let ti=0;
+function term(){ $('term').innerHTML=T.slice(0,ti+1).join('<br>');ti=(ti+1)%(T.length+1);if(ti==0)ti=0}
+term();if(!rm)setInterval(term,1400);
+/* marquee */
+const tech='React,Next.js,Vue,TypeScript,Node.js,Python,Django,FastAPI,Java,Spring Boot,.NET,PHP,Laravel,Go,Flutter,React Native,Swift,Kotlin,PostgreSQL,MongoDB,Redis,PyTorch,TensorFlow,LLMs,Docker,Kubernetes,AWS,Azure,Google Cloud,Terraform,GraphQL,REST'.split(',');
+$('mq').innerHTML=[0,1].map(()=>tech.map(t=>'<span>'+t+'</span>').join('')).join('');
+/* showcase */
+$('bars').innerHTML=[55,80,45,95,65,85,50,90,70,100].map((h,i)=>`<u style="--h:${h}%;--d:${i*.2}s"></u>`).join('');
+const C=[["u","Summarize this Arabic contract."],["a","Done. 3 key obligations, 1 risk clause flagged."],["u","Draft a reply to the client."],["a","Drafted in Arabic and English. Ready to review."]];let ci=0;
+function chat(){const c=$('chat');if(ci>=C.length){ci=0;c.innerHTML='';}const p=document.createElement('p');p.className=C[ci][0];p.textContent=C[ci][1];c.appendChild(p);ci++}
+chat();if(!rm)setInterval(chat,1800);else while(ci<C.length)chat();
+let nn='';const A=[[30,15],[30,40],[30,65],[110,10],[110,30],[110,50],[110,70],[190,20],[190,40],[190,60],[270,40]];
+A.forEach((a,i)=>A.forEach((b,j)=>{if(b[0]-a[0]==80||(a[0]==190&&b[0]==270)||(a[0]==30&&b[0]==110&&(i+j)%2==0))nn+=`<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`}));
+A.forEach((a,i)=>nn+=`<circle cx="${a[0]}" cy="${a[1]}" r="5" style="--d:${i*.2}s"/>`);$('nn').innerHTML=nn;
+/* expertise */
+const X={"Front end":"React,Next.js,Vue,Angular,TypeScript,Tailwind,Three.js,RTL & Arabic UX","Mobile":"Flutter,React Native,Swift,Kotlin,Push notifications,In-app payments","Back end":"Node.js,Python,Django,FastAPI,Java,Spring Boot,.NET,PHP,Laravel,Go","Data":"PostgreSQL,MySQL,MongoDB,Redis,Elasticsearch,ETL pipelines,Data warehousing","AI & ML":"PyTorch,TensorFlow,LLMs,RAG,Arabic NLP,Computer vision,OCR,Fine-tuning,MLOps","Cloud & DevOps":"AWS,Google Cloud,Azure,Docker,Kubernetes,Terraform,CI/CD,Monitoring","Security":"OWASP,Encryption,IAM & SSO,Penetration testing,Audit logging,Backups","Integration":"REST,GraphQL,Webhooks,Payment gateways,Microservices,Message queues"};
+$('ex').innerHTML=Object.entries(X).map(([k,v])=>`<div><h3>${k}</h3><p>${v.split(',').map((t,i)=>`<span style="--k:${i}">${t}</span>`).join('')}</p></div>`).join('');
+/* architect */
+const N={web:["Web",90,60],mob:["Mobile",90,160],ai:["AI / ML",90,260],crm:["CRM",90,350],api:["APIs",510,60],db:["Databases",510,160],cl:["Cloud",510,260],sc:["Security",510,350]};
+const P={"Website":{n:["web","api","db","cl"],t:"fast front end, solid back end, reliable hosting"},"Mobile app":{n:["mob","api","db","sc"],t:"Android and iOS with accounts, payments and notifications"},"AI solution":{n:["ai","api","db","cl"],t:"models trained on your data, running inside your system"},"CRM":{n:["crm","api","db","sc"],t:"dashboards, permissions and reports for your team"}};
+let h='';Object.entries(N).forEach(([k,[t,x,y]])=>{const s=x<300;h+=`<path class="ln" id="l-${k}" d="M300 205C${s?200:400} ${y},${s?200:400} ${y},${s?x+70:x-70} ${y}"/>`});
+Object.entries(N).forEach(([k,[t,x,y]])=>{h+=`<g class="nd" id="n-${k}"><rect x="${x-70}" y="${y-20}" width="140" height="40" rx="20"/><text x="${x}" y="${y+5}" text-anchor="middle">${t}</text></g>`});
+$('map').innerHTML=h+`<circle cx="300" cy="205" r="46" fill="#4fd6db"/><text x="300" y="211" text-anchor="middle" fill="#04282b" font-weight="800" font-size="15" font-family="Sora">Your idea</text>`;
+const on=new Set(["Website"]);
+Object.keys(P).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.setAttribute('aria-pressed',on.has(k));b.onclick=()=>{on.has(k)?on.delete(k):on.add(k);b.setAttribute('aria-pressed',on.has(k));draw()};$('chips').appendChild(b)});
+function draw(){const s=new Set();on.forEach(k=>P[k].n.forEach(x=>s.add(x)));Object.keys(N).forEach(k=>{$('n-'+k).classList.toggle('on',s.has(k));$('l-'+k).classList.toggle('on',s.has(k))});$('out').innerHTML=on.size?'<b>We would deliver '+s.size+' components:</b><br>'+[...on].map(k=>k+': '+P[k].t).join('<br>'):'Pick at least one product type.'}
+draw();
+/* reveal + counters */
+function count(c){const n=+c.dataset.n;let v=0;const t=setInterval(()=>{v+=Math.ceil(n/30);if(v>=n){v=n;clearInterval(t)}c.textContent=v+(v==n&&c.dataset.s||'')},35)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);e.target.classList.add('in','go');e.target.querySelectorAll('[data-n]').forEach(count)}),{threshold:.25});
+document.querySelectorAll('.rv,#steps,.ex div').forEach(e=>io.observe(e));
+/* live kpis */
+document.querySelectorAll('[data-live]').forEach(k=>{const b=+k.dataset.live;k.textContent=b;setInterval(()=>{k.textContent=Math.round(b*(1+Math.random()*.06))},1500)});
+$('f').onsubmit=e=>{e.preventDefault();location.href='mailto:info@vitech.com?subject='+encodeURIComponent('Project inquiry: '+$('tp').value)+'&body='+encodeURIComponent('Name: '+$('nm').value+'\nEmail: '+$('em').value+'\n\n'+$('ms').value)};
+</script>
+</body>
+</html>
